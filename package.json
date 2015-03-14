@@ -1,7 +1,8 @@
 {
   "name": "Movistar-Tv-Epg-Grabber",
-  "description": "Epg grabber for Movistar TV. The server grabs the epg from multicast and convert it to simpler format.",
   "version": "1.0.0",
+  "description": "Epg grabber for Movistar TV. The server grabs the epg from multicast and convert it to simpler format.",
+  "main": "app.js",
   "author": "Albert Crespell Perez",
   "repository": {
     "type": "git",

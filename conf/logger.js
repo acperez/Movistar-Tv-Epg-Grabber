@@ -7,5 +7,5 @@ log4js.configure({
 });
 
 var logger = log4js.getLogger('MovistarTV');
-logger.setLevel('DEBUG');
+logger.setLevel('INFO');
 Object.defineProperty(exports, "LOG", { value:logger });
