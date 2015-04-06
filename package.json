@@ -22,7 +22,8 @@
     "cron": "1.0.9",
     "xml2json": "0.6.1",
     "entities": "1.1.1",
-    "rimraf": "2.3.2"
+    "rimraf": "2.3.2",
+    "mustache": "1.2.0"
   },
   "license": {
     "type": "GNU Affero General Public License",

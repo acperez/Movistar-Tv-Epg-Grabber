@@ -4,26 +4,23 @@ var express = require("express"),
   cronJob = require('cron').CronJob,
   fs = require('fs'),
   path = require('path'),
-  routes = require('./routes/index'),
   conf = require('./conf/config'),
-  logger = require('./conf/logger.js');
+  logger = require('./conf/logger.js'),
+  loader = require('./lib/epg_loader');
 
 // Configure logger
 var log=logger.LOG;
 app.use(log4js.connectLogger(log, { level: 'auto' }));
 
-// Create data folder
-fs.mkdir(path.join(__dirname, 'data'), function(err){});
-
-// Set router
-app.use('/', routes);
+// Set static folder
+app.use(express.static(loader.dataPublicPath));
 
 // Start server
 app.listen(conf.port, function() {
   log.info('Server running on http://localhost:' + conf.port);
 
   // Check config, channels subscription and update epg
-  var loader = require('./lib/epg_loader');
+  loader.start();
 
   // Init cron
   new cronJob(conf.refresh_pattern, loader.updateEPG, null, true);
