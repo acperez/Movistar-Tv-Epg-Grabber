@@ -5,10 +5,15 @@ v8::Persistent<v8::Function> Player::constructor;
 Player::Player()
 {
   char const* vlc_argv[] = {
-    "--verbose", "0",
-    "--vout", "gl",
-    "--rt-priority"
+    "--verbose", "4",
+//    "--avcodec-hw", "vdpau",
+    //"--avcodec-hw", "vaapi",
+    "--vout", "opengl",
+    //"--rt-priority",
+    "--video-filter=deinterlace",
+    "--deinterlace=-1"
   };
+
   int vlc_argc = sizeof(vlc_argv) / sizeof(*vlc_argv);
 
   /* Load the VLC engine */
